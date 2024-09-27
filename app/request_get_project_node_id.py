@@ -3,7 +3,7 @@ from request_generic_graphql import graphql_request
 
 
 def get_project_node_id_graphql() -> str:
-    query = f'query{{user(login: "{REPOSITORY_OWNER}") {{projectV2(number: {PROJECT_ID}){{id}}}}}}'
+    query = f'query{{organization(login: "{REPOSITORY_OWNER}") {{projectV2(number: {PROJECT_ID}){{id}}}}}}'
     response = graphql_request('POST', query)
 
     match response.status_code:

@@ -10,8 +10,11 @@ def get_project_node_id_graphql() -> str:
         case 200:
             response_data = response.json()
             try:
-                node_id = response_data['data']['user']['projectV2']['id']
-            except Exception as exc:
+                project_data = response_data['data']['organization']['projectV2']
+                if project_data is None:
+                    raise Exception('Project not found')
+                node_id = project_data['id']
+            except KeyError as exc:
                 raise Exception(
                     f'Could not obtain the project node id for project {PROJECT_ID}.\n'
                     f'Exception: {exc}\n'

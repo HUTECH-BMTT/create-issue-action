@@ -1,5 +1,5 @@
 # every action has a name
-name: Create Issue and Add to Project Action
+name: Create Assignment Issue and Add to Project Action
 # description
 description: This action creates an issue based on user inputs
 # input parameters to be taken from user
@@ -42,5 +42,5 @@ runs:
 
 # for publishing purposes
 branding: #generates a logo for our action
-  icon: arrow-down #icon of the image
-  color: blue # background color of the logo of our action
+  icon: 'book-open' # icon name
+  color: 'red' # color of the icon

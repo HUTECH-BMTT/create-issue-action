@@ -9,7 +9,7 @@ def get_project_node_id_graphql() -> str:
     if response.status_code == 200:
         response_data = response.json()
         try:
-            project_data = response_data['data'].get('organization', {}).get('projectV2', None)
+            project_data = response_data['data'].get('organization') or response_data['data'].get('user')
             if project_data is None:
                 raise Exception('Project not found')
             node_id = project_data['id']
